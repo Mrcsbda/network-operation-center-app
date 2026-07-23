@@ -6,12 +6,12 @@
   "scripts": {
     "dev": "tsnd --respawn --clear src/app.ts",
     "build": "rimraf ./dist && tsc",
-    "start": "npm run build && node dist/app.js"
+    "start": "yarn build && node dist/app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.29.2",
+  "packageManager": "yarn@1.22.22",
   "devDependencies": {
     "@types/node": "^25.9.1",
     "rimraf": "^6.1.3",
