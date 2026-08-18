@@ -1,5 +1,7 @@
-import { LogEntity, LogSeverityLevel } from "../../entities/log.entity";
+import { LogEntity, LogEntityOptions, LogSeverityLevel } from "../../entities/log.entity";
 import { LogRepository } from "../../repository/log.repository";
+
+
 
 interface ICheckServiceUseCase {
     execute(url: string): Promise<boolean>;
@@ -36,14 +38,29 @@ export class CheckService implements ICheckServiceUseCase {
                 throw new Error(`Error on check service ${url}: ${response.statusText}`); // se hace esto para que el error sea capturado en el catch y se ejecute el callback de error
             }
 
-            const log = new LogEntity(`Service ${url} is working`, LogSeverityLevel.LOW);
+            const newLog: LogEntityOptions = {
+                message: `Service ${url} is working`,
+                level: LogSeverityLevel.LOW,
+                origin: 'check-service.ts',
+                createdAt: new Date()
+            }
+
+            const log = new LogEntity(newLog);
             this.logRepository.saveLog(log);
 
             this.successCallback && this.successCallback();
             return true
         } catch (error) {
             const errorMessage = `${url} is no okay. ${error}`
-            const log = new LogEntity(errorMessage, LogSeverityLevel.HIGH);
+
+            const newLog: LogEntityOptions = {
+                message: errorMessage,
+                level: LogSeverityLevel.HIGH,
+                origin: 'check-service.ts',
+                createdAt: new Date()
+            }
+
+            const log = new LogEntity(newLog);
             this.logRepository.saveLog(log);
 
             this.errorCallback && this.errorCallback(`${errorMessage}`);
