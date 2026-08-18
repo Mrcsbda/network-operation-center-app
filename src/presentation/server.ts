@@ -1,4 +1,3 @@
-import { SendEmailLogs } from "../domain/use-cases/email/send-email-logs";
 import { FileSystemDatasource } from "../infrastructure/datasources/file-system/file-system.datasource";
 import { LogRepositoryImplementation } from "../infrastructure/repositories/log.repository.implementation";
 import { EmailService } from "./email/email.service";
