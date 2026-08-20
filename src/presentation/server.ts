@@ -7,6 +7,7 @@ const emailService = new EmailService();
 
 export class Server {
     public static start() {
+        console.log('Server started...')
 
         // const emailService = new EmailService(fileSystemLogRepository);
         // emailService.sendEmailWithFileSystemLoggs(['macbedoya@gmail.com'])

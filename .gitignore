@@ -1,8 +1,9 @@
 node_modules/
 dist/
 build/
-.DS_Store
-
+mongo/
 logs/
 
+
+.DS_Store
 .env

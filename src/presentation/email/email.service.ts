@@ -37,8 +37,6 @@ export class EmailService {
                 attachments
             })
 
-            console.log('Email sent: ', sendInformation);
-
             return true
         } catch (error) {
             return false

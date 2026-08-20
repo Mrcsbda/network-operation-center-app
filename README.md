@@ -8,12 +8,15 @@ El objetivo es crear una serie de tareas usando Arquitectura Limpia con TypeScri
 2. Configurar las variables de entorno
 
 ```
-PORT=3000
-
 MAILER_EMAIL=
 MAILER_SECRET_KEY=
-
-PROD=false
+MAILER_SERVICE=
+PROD=
+PORT=
+MONGO_URL=
+MONGO_DB_NAME=
+MONGO_USER=
+MONGO_PASS=
 ```
 
 3. Ejecutar el comando
