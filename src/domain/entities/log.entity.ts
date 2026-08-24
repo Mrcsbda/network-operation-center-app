@@ -26,7 +26,26 @@ export class LogEntity {
     }
 
     static fromJSON(json: string): LogEntity {
+        json = !json.trim() ? '{}' : json;
         const { message, level, origin, createdAt } = JSON.parse(json)
+
+        const log = new LogEntity({
+            message,
+            level,
+            origin,
+            createdAt
+        });
+
+        return log;
+    }
+
+    static fromObject(obj: { [key: string]: any }): LogEntity {
+        const { message, level, origin, createdAt } = obj;
+
+        Object.keys(obj).forEach(key => {
+            const value = obj[key];
+            if (value === undefined || value === null) throw new Error("Invalid log object: missing required property " + key);
+        })
 
         const log = new LogEntity({
             message,
