@@ -1,0 +1,8 @@
+{
+  // El CLI de este proyecto es Prisma 6.19.3, que exige `url` dentro del
+  // bloque `datasource`. La extensión valida con Prisma 7 por defecto, donde
+  // esa propiedad ya no existe. Fijamos el language server a la v6 para que
+  // editor y CLI coincidan.
+  "prisma.pinToPrisma6": true,
+  "prisma.hidePrisma6Prompts": true
+}

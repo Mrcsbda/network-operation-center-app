@@ -13,14 +13,32 @@ MAILER_SECRET_KEY=
 MAILER_SERVICE=
 PROD=
 PORT=
+
 MONGO_URL=
 MONGO_DB_NAME=
 MONGO_USER=
 MONGO_PASS=
+
+POSTGRES_URL=
+POSTGRES_USER=
+POSTGRES_PASSWORD=
+POSTGRES_DB=
 ```
 
 3. Ejecutar el comando
 
 ```
 yarn i
+```
+
+4. Levantar las bases de datos con el comando
+
+```
+docker compose up -d
+```
+
+5. Ejecutar
+
+```
+yarn dev
 ```

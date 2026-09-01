@@ -2,8 +2,10 @@ node_modules/
 dist/
 build/
 mongoDb/
+postgresDb/
 logs/
-
 
 .DS_Store
 .env
+
+/src/generated/prisma
