@@ -1,14 +1,21 @@
-import { CheckService } from "../domain/use-cases/checks/check-service";
+import { CheckServiceMultiple } from "../domain/use-cases/checks/check-service-multiple";
+import { FileSystemDatasource } from "../infrastructure/datasources/file-system/file-system.datasource";
+import { MongoDatasource } from "../infrastructure/datasources/mongo/mongo.datasource";
 import { PostgresDatasource } from "../infrastructure/datasources/postgres/postgres.datasource";
 import { LogRepositoryImplementation } from "../infrastructure/repositories/log.repository.implementation";
 import { CronService } from "./cron/cron-service";
 import { EmailService } from "./email/email.service";
 
-const logRepository = new LogRepositoryImplementation(
-    // new FileSystemDatasource()
-    // new MongoDatasource()
+const fslogRepository = new LogRepositoryImplementation(
+    new FileSystemDatasource()
+);
+const mongoLogRepository = new LogRepositoryImplementation(
+    new MongoDatasource()
+);
+const postgresLogRepository = new LogRepositoryImplementation(
     new PostgresDatasource()
 );
+
 const emailService = new EmailService();
 
 export class Server {
@@ -33,7 +40,13 @@ export class Server {
             const checkServiceSuccess = () => console.log(`Success callback called, service ${url} is up`)
             const checkServiceError = (error: any) => console.log(`${error}`)
 
-            new CheckService(logRepository, checkServiceSuccess, checkServiceError).execute(url);
+
+
+            new CheckServiceMultiple(
+                [fslogRepository, mongoLogRepository, postgresLogRepository],
+                checkServiceSuccess,
+                checkServiceError
+            ).execute(url);
         };
 
         CronService.createJob(cronTime, onTick);

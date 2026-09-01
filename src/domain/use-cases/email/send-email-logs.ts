@@ -2,11 +2,11 @@ import { EmailService } from "../../../presentation/email/email.service";
 import { LogEntity, LogSeverityLevel } from "../../entities/log.entity";
 import { LogRepository } from "../../repository/log.repository";
 
-interface SendLogsEmailUseCase {
+interface SendEmailLogsUseCase {
     execute(to: string | string[]): Promise<boolean>;
 }
 
-export class SendLogsEmail implements SendLogsEmailUseCase {
+export class SendEmailLogs implements SendEmailLogsUseCase {
     constructor(
         private readonly emailService: EmailService,
         private readonly logRepository: LogRepository
