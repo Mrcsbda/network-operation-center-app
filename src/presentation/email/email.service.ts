@@ -30,7 +30,7 @@ export class EmailService {
         const { to, subject, htmlBody, attachments = [] } = options;
 
         try {
-            const sendInformation = await this.transporter.sendMail({
+            await this.transporter.sendMail({
                 to,
                 subject,
                 html: htmlBody,
