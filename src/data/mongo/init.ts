@@ -6,7 +6,7 @@ interface ConnectionOptions {
 }
 
 export class MongoDatabase {
-    static async connect(options: ConnectionOptions): Promise<void> {
+    static async connect(options: ConnectionOptions): Promise<any> {
         const { mongoUrl, dbName } = options;
 
         try {
@@ -14,10 +14,8 @@ export class MongoDatabase {
                 dbName: dbName,
             });
 
-            console.log('Connected to MongoDB');
-
+            return true
         } catch (error) {
-            console.error('Error connecting to MongoDB:', error);
             throw error;
         }
     }

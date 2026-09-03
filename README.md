@@ -37,7 +37,13 @@ yarn i
 docker compose up -d
 ```
 
-5. Ejecutar
+5. Ejecutar el comando
+
+```
+npx prisma migrate dev
+```
+
+6. Ejecutar
 
 ```
 yarn dev

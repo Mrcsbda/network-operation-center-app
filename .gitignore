@@ -3,7 +3,10 @@ dist/
 build/
 mongoDb/
 postgresDb/
+mongoDb-test/
+postgresDb-test/
 logs/
+coverage/
 
 .DS_Store
 .env
