@@ -15,14 +15,14 @@ export class SendEmailLogs implements SendEmailLogsUseCase {
     }
     async execute(to: string | string[]): Promise<boolean> {
         try {
-            const sent = await this.emailService.sendEmailWithFileSystemLoggs(to);
+            const sent = await this.emailService.sendEmailWithFileSystemLogs(to);
             if (!sent) {
                 throw new Error('Log email failed to send');
             }
 
             const newLog = new LogEntity({
                 message: `Log email sent to ${to}"`,
-                level: LogSeverityLevel.HIGH,
+                level: LogSeverityLevel.LOW,
                 origin: 'send-email-logs.ts'
             });
             await this.logRepository.saveLog(newLog);

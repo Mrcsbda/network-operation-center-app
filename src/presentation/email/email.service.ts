@@ -43,7 +43,7 @@ export class EmailService {
         }
     }
 
-    async sendEmailWithFileSystemLoggs(to: string | string[]) {
+    async sendEmailWithFileSystemLogs(to: string | string[]) {
         const subject = 'Logs from the system';
         const htmlBody = `
             <h2>Logs de sistema - NOC</h2>

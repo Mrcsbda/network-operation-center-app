@@ -23,7 +23,7 @@ export class CheckServiceMultiple implements ICheckServiceMultipleUseCase {
     // }
 
     constructor(
-        private readonly logRepository: LogRepository[],
+        private readonly logRepositories: LogRepository[],
         private readonly successCallback: SuccessCallback,
         private readonly errorCallback: ErrorCallback
     ) {
@@ -31,7 +31,7 @@ export class CheckServiceMultiple implements ICheckServiceMultipleUseCase {
     }
 
     private async saveLogs(log: LogEntity): Promise<void> {
-        this.logRepository.forEach(async (repository) => {
+        this.logRepositories.forEach(async (repository) => {
             await repository.saveLog(log);
         })
     }

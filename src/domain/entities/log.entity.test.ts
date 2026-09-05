@@ -1,7 +1,7 @@
 import { describe, expect, test } from '@jest/globals';
 import { LogEntity, LogSeverityLevel } from './log.entity';
 
-describe('log.entities.ts', () => {
+describe('log.entity.ts', () => {
     const dataObject = {
         level: LogSeverityLevel.LOW,
         message: 'Test log message',
