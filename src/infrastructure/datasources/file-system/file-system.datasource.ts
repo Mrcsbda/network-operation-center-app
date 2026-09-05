@@ -53,10 +53,10 @@ export class FileSystemDatasource implements LogDataSource {
         const content = fs.readFileSync(filePath, 'utf-8');
         if (!content.trim()) return [];
         // const logsExample: LogEntity[] = content.split('\n')
-        //     .map((log: string) => LogEntity.fromJSON(log))
+        //     .map((log: string) => LogEntity.fromJson(log))
         const logs: LogEntity[] = content.split('\n')
             .filter((log: string) => log.trim() !== '')
-            .map(LogEntity.fromJSON)
+            .map(LogEntity.fromJson)
 
         return logs;
     }
