@@ -4,7 +4,6 @@ import { envs } from './envs.plugin';
 describe('env.plugin.ts', () => {
 
     test('should return env options', () => {
-        console.log(envs)
         expect(envs).toEqual({
             PORT: 3000,
             PROD: true,

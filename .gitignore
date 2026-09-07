@@ -10,5 +10,6 @@ coverage/
 
 .DS_Store
 .env
+.env.test
 
 /src/generated/prisma

@@ -48,7 +48,5 @@ describe('log.model.ts', () => {
             origin: { type: expect.any(Function) },
             createdAt: expect.any(Object),
         }));
-
-        console.log(schema)
     })
 })
