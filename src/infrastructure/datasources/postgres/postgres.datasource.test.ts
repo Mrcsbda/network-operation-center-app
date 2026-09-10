@@ -1,10 +1,10 @@
 import { afterAll, afterEach, describe, expect, jest, test } from '@jest/globals';
-import { PrismaClient } from '../../../generated/prisma/client';
 import { LogEntity, LogSeverityLevel } from '../../../domain/entities/log.entity';
+import { PrismaClient } from '../../../generated/prisma/client';
 import { PostgresDatasource } from './postgres.datasource';
 
 
-describe('mongo-log-datasource.ts', () => {
+describe('postgres-log-datasource.ts', () => {
     const logDataSource = new PostgresDatasource()
     const prisma = new PrismaClient();
 
